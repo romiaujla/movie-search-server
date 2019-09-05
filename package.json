@@ -4,7 +4,9 @@
   "description": "A node server that searches movies from a given set of movies in a dataset.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server",
+    "dev": "nodemon server",
+    "test": "mocha test"
   },
   "repository": {
     "type": "git",
