@@ -16,5 +16,11 @@
   "bugs": {
     "url": "https://github.com/romiaujla/movie-search-server/issues"
   },
-  "homepage": "https://github.com/romiaujla/movie-search-server#readme"
+  "homepage": "https://github.com/romiaujla/movie-search-server#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "helmet": "^3.21.0",
+    "morgan": "^1.9.1"
+  }
 }
