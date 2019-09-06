@@ -13,7 +13,7 @@ app.use(cors());
 
 function validateUser(req, res, next){
     const apiToken = process.env.API_TOKEN;
-    const authToken = req.get('authorization');
+    const authToken = req.get('Authorization');
     console.log(authToken);
     
     if(authToken !== apiToken){
@@ -29,7 +29,7 @@ app.use(validateUser);
 
 app.get(`/movies`, (req,res) => {
     let result = MOVIES;
-    const {genre = '', country = '', avg_vote = ''} = req.query;
+    const {genre = '', country = '', avg_vote = 0} = req.query;
 
     // Filtering result array if Genre is provided
     result = result.filter((movie) => movie.genre.toLowerCase().includes(genre.toLowerCase()));
@@ -43,7 +43,7 @@ app.get(`/movies`, (req,res) => {
     // Filtering using average vote, give back all movies with greater vote than what is supplied by the user
     result = result.filter((movie) => movie.avg_vote >= avgVoteFloat);
     
-    res.send(result);
+    res.json(result);
 });
 
 module.exports = app;
