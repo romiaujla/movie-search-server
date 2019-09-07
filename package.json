@@ -15,6 +15,9 @@
     "url": "git+https://github.com/romiaujla/movie-search-server.git"
   },
   "keywords": [],
+  "engine":{
+    "node": "10.16.0"
+  },
   "author": "",
   "license": "ISC",
   "bugs": {

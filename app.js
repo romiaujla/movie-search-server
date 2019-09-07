@@ -6,17 +6,16 @@ const cors = require('cors');
 const MOVIES = require('./movies-data-small.json');
 
 const app = express();
-
-app.use(morgan('dev'));
+const morganSettings = process.env.NODE_ENV === 'production' ? 'tiny' : 'common';
+app.use(morgan(morganSettings));
 app.use(helmet());
 app.use(cors());
 
 function validateUser(req, res, next){
     const apiToken = process.env.API_TOKEN;
     const authToken = req.get('Authorization');
-    console.log(authToken);
     
-    if(authToken !== apiToken){
+    if(!authToken || authToken !== apiToken){
         return res
             .status(401)
             .send(`Unauthorized Access`);
